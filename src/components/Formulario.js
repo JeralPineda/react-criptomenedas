@@ -20,8 +20,15 @@ const Boton = styled.button`
 `;
 
 const Formulario = () => {
+   const MONEDAS = [
+      { codigo: 'HNL', nombre: 'Lempira Hondureño' },
+      { codigo: 'USD', nombre: 'Dolar de Estados Unidos' },
+      { codigo: 'EUR', nombre: 'Euro' },
+      { codigo: 'MXN', nombre: 'Peso Mexicano' },
+      { codigo: 'GBP', nombre: 'Libra Esterlina' },
+   ];
    // usando nuestro hook useMoneda
-   const [moneda, SelectMonedas, setMoneda] = useMoneda();
+   const [moneda, SelectMonedas, setMoneda] = useMoneda('Elige tu Moneda', '', MONEDAS);
 
    return (
       <form>
