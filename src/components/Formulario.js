@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import useCriptomoneda from '../hooks/useCriptomoneda';
 import useMoneda from '../hooks/useMoneda';
+import Error from './Error';
 
 const Boton = styled.button`
    margin-top: 20px;
@@ -69,7 +70,7 @@ const Formulario = () => {
 
    return (
       <form onSubmit={handleSubmit}>
-         {error ? 'Hay un error' : null}
+         {error ? <Error mensaje='Todos los campos son obligatorios' /> : null}
 
          <SelectMonedas />
 
