@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import Formulario from './components/Formulario';
 
@@ -38,6 +39,14 @@ const Heading = styled.h1`
 `;
 
 function App() {
+   const [moneda, setMoneda] = useState('');
+   const [criptomoneda, setCriptomoneda] = useState('');
+
+   useEffect(() => {
+      //    Evitamos la ejecucion la primera vez
+      if (moneda === '') return null;
+   }, [moneda, criptomoneda]);
+
    return (
       <Contenedor>
          <div>
@@ -47,7 +56,11 @@ function App() {
          <div>
             <Heading>Cotiza Criptomonedas al Instante</Heading>
 
-            <Formulario />
+            <Formulario
+               //
+               setMoneda={setMoneda}
+               setCriptomoneda={setCriptomoneda}
+            />
          </div>
       </Contenedor>
    );

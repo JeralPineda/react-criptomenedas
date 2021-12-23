@@ -24,7 +24,7 @@ const Boton = styled.button`
    }
 `;
 
-const Formulario = () => {
+const Formulario = ({ setMoneda, setCriptomoneda }) => {
    // state del listado de criptomonedas
    const [listacripto, setListacripto] = useState([]);
    const [error, setError] = useState(false);
@@ -66,6 +66,8 @@ const Formulario = () => {
       }
 
       setError(false);
+      setMoneda(moneda);
+      setCriptomoneda(criptomoneda);
    };
 
    return (
