@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Formulario from './components/Formulario';
 
 import img from './cryptomonedas.png';
 
@@ -45,6 +46,8 @@ function App() {
 
          <div>
             <Heading>Cotiza Criptomonedas al Instante</Heading>
+
+            <Formulario />
          </div>
       </Contenedor>
    );
