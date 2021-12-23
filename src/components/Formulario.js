@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import useMoneda from '../hooks/useMoneda';
 
 const Boton = styled.button`
    margin-top: 20px;
@@ -17,9 +18,15 @@ const Boton = styled.button`
       cursor: pointer;
    }
 `;
+
 const Formulario = () => {
+   // usando nuestro hook useMoneda
+   const [moneda, SelectMonedas, setMoneda] = useMoneda();
+
    return (
       <form>
+         <SelectMonedas />
+
          <Boton type='submit' value='calcular'>
             Cotizar
          </Boton>
