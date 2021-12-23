@@ -26,6 +26,7 @@ const Boton = styled.button`
 const Formulario = () => {
    // state del listado de criptomonedas
    const [listacripto, setListacripto] = useState([]);
+   const [error, setError] = useState(false);
 
    const MONEDAS = [
       { codigo: 'HNL', nombre: 'Lempira Hondureño' },
@@ -54,8 +55,22 @@ const Formulario = () => {
       consultarAPI();
    }, []);
 
+   const handleSubmit = (e) => {
+      e.preventDefault();
+
+      // Validar si los campos no estan vacios
+      if (moneda === '' || criptomoneda === '') {
+         setError(true);
+         return;
+      }
+
+      setError(false);
+   };
+
    return (
-      <form>
+      <form onSubmit={handleSubmit}>
+         {error ? 'Hay un error' : null}
+
          <SelectMonedas />
 
          <SelectCripto />
